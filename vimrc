@@ -61,4 +61,5 @@ nnoremap <leader>s :source $MYVIMRC<CR>
 nnoremap <leader>c :YcmForceCompileAndDiagnostics<CR>
 nnoremap <leader>e :lnext<CR>
 nnoremap <leader>w :lprevious<CR>
+cmap w!! w !sudo tee > /dev/null %
 "set pastetoggle=<leader>p
