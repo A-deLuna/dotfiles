@@ -7,11 +7,12 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
-set noerrorbells visualbell t_vb=
+set noerrorbells visualbell t_vb= 
 set background=dark
 set undofile
 set undodir=~/.vim/undo
 set ssop-=options
+"set keymap=accents
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -22,7 +23,8 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'simnalamburt/vim-mundo'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'digitaltoad/vim-jade'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'bkad/CamelCaseMotion'
+"Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
 filetype plugin indent on
@@ -36,7 +38,8 @@ let g:ycm_always_populate_location_list = 1
 function TabToggle()
   if &expandtab
     set shiftwidth=8
-    set softtabstop=0
+    set softtabstop=8
+    set shiftwidth=8
     set noexpandtab
   else
     set shiftwidth=2
@@ -51,14 +54,16 @@ tnoremap <Esc> <C-\><C-n>
 nnoremap <leader>g :GundoToggle<CR>
 nnoremap <leader>l :set list!<CR>
 nmap <leader>t mz:execute TabToggle()<CR>'z
-nnoremap <leader>] :bnext<CR>
-nnoremap <leader>[ :bprevious<CR>
+nnoremap <leader>] :bnext!<CR>
+nnoremap <leader>[ :bprevious!<CR>
 nnoremap <leader>. :tabnext<CR>
 nnoremap <leader>, :tabprevious<CR>
 nnoremap <leader>t. :tabm +1<CR>
 nnoremap <leader>t, :tabm -1<CR>
 nnoremap <leader>s :source $MYVIMRC<CR>
 nnoremap <leader>c :YcmForceCompileAndDiagnostics<CR>
-nnoremap <leader>e :lnext<CR>
-nnoremap <leader>w :lprevious<CR>
+"nnoremap <leader>e :lnext<CR>
+"nnoremap <leader>w :lprevious<CR>
+cmap w!! w !sudo tee > /dev/null %
 "set pastetoggle=<leader>p
+call camelcasemotion#CreateMotionMappings('<leader>')
