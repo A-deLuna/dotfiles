@@ -2,9 +2,6 @@
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
-ln -s ~/.vim $XDG_CONFIG_HOME/nvim
-ln -s ~/dotfiles/vimrc $XDG_CONFIG_HOME/nvim/init.vim
-ln -s ~/dotfiles/bashrc ~/.bashrc
-
-
+ln -s ~/dotfiles/vimrc ~/.vimrc
+ln -s ~/dotfiles/zshrc ~/.zshrc
+ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
